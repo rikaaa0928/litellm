@@ -334,7 +334,7 @@ class VertexBase:
                     # Check if model is numeric (endpoint ID) or if api_base doesn't contain googleapis.com
                     # These are indicators of PSC/custom endpoints
                     is_psc_or_custom = (
-                        "googleapis.com" not in api_base.lower() or model_for_url.isdigit()
+                            ("googleapis.com" not in api_base.lower() and "gateway.ai.cloudflare.com" not in api_base.lower())  or model_for_url.isdigit()
                     )
                     
                     if is_psc_or_custom:
