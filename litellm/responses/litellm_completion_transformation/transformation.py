@@ -268,7 +268,8 @@ class LiteLLMCompletionResponsesConfig:
                 if LiteLLMCompletionResponsesConfig._is_input_item_tool_call_output(
                     input_item=_input
                 ):
-                    tool_call_output_messages.extend(chat_completion_messages)
+                    # tool_call_output_messages.extend(chat_completion_messages)
+                    messages.extend(chat_completion_messages)
                 else:
                     messages.extend(chat_completion_messages)
 
