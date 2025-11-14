@@ -372,6 +372,8 @@ class LiteLLMCompletionResponsesConfig:
         _tool_use_definition = TOOL_CALLS_CACHE.get_cache(
             key=tool_call_output.get("call_id") or "",
         )
+        _tool_use_definition=False
+        print("skip add cached function call")
         if _tool_use_definition:
             """
             Append the tool use definition to the list of messages
