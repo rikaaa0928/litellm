@@ -781,6 +781,8 @@ class LiteLLMCompletionResponsesConfig:
     ) -> List[GenericResponseOutputItem]:
         message_output_items = []
         for choice in choices:
+            if choice.message.content is None:
+                continue
             message_output_items.append(
                 GenericResponseOutputItem(
                     type="message",

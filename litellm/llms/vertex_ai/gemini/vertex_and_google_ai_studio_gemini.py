@@ -1707,7 +1707,8 @@ class VertexGeminiConfig(VertexAIBaseConfig, BaseConfig):
                     for block in thinking_blocks:
                         thinking_text = block.get("thinking")
                         if thinking_text:
-                            reasoning_content_parts.append(thinking_text)
+                            if json.loads(thinking_text)["functionCall"] is None:
+                                reasoning_content_parts.append(thinking_text)
 
                     if reasoning_content_parts:
                         reasoning_content = "\n".join(reasoning_content_parts)
